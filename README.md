@@ -154,6 +154,6 @@ Mobile alert integration
 
 ## 👨‍💻 Author
 
-Eshwar Valaboju (1BY23AI050)
+K V LOKESH REDDY (1BY23AI065)
 
 Guide: Dr. Manoj H M
