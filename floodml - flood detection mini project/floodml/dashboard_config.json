@@ -1,0 +1,113 @@
+{
+  "app_name": "FloodML Dashboard",
+  "version": "1.0.0",
+  "theme": {
+    "primary_color": "#00ff88",
+    "secondary_color": "#ff0080",
+    "accent_color": "#00ccff",
+    "background_primary": "#0a0a0a",
+    "background_secondary": "#1a0033",
+    "text_primary": "#00ff88",
+    "text_secondary": "#00ccff",
+    "warning_color": "#ffff00",
+    "error_color": "#ff0000"
+  },
+  "model": {
+    "path": "models/flood_model.pkl",
+    "type": "RandomForestClassifier",
+    "n_estimators": 100,
+    "max_depth": null,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "random_state": 42
+  },
+  "satellites": [
+    {
+      "id": "s1",
+      "name": "Sentinel-1",
+      "type": "SAR",
+      "resolution": "10m",
+      "revisit_days": 6,
+      "accuracy": 0.92,
+      "enabled": true
+    },
+    {
+      "id": "s2",
+      "name": "Sentinel-2",
+      "type": "Optical",
+      "resolution": "10m",
+      "revisit_days": 5,
+      "accuracy": 0.95,
+      "enabled": true
+    },
+    {
+      "id": "l8",
+      "name": "Landsat 8",
+      "type": "Optical",
+      "resolution": "30m",
+      "revisit_days": 8,
+      "accuracy": 0.88,
+      "enabled": true
+    },
+    {
+      "id": "l9",
+      "name": "Landsat 9",
+      "type": "Optical",
+      "resolution": "30m",
+      "revisit_days": 8,
+      "accuracy": 0.89,
+      "enabled": true
+    },
+    {
+      "id": "tsx",
+      "name": "TerraSAR-X",
+      "type": "SAR",
+      "resolution": "3m",
+      "revisit_days": 11,
+      "accuracy": 0.87,
+      "enabled": true
+    }
+  ],
+  "processing": {
+    "post_processing_radius": 2,
+    "cloud_threshold": 0.3,
+    "confidence_threshold_default": 0.75,
+    "minimum_flood_area_pixels": 100,
+    "batch_size": 256,
+    "num_workers": 8,
+    "use_gpu": true
+  },
+  "dem": {
+    "source": "copernicus",
+    "copernicus_dir": "path/to/copernicus_dem",
+    "merit_dir": "path/to/merit_dem"
+  },
+  "data": {
+    "cache_size_gb": 10,
+    "max_retention_days": 730,
+    "archive_path": "data/archive",
+    "compression": "LZW",
+    "nodata_value": 255
+  },
+  "display": {
+    "map_height": 500,
+    "chart_height": 400,
+    "colormap": "RdYlGn_r",
+    "show_confidence_intervals": true,
+    "show_error_bands": true
+  },
+  "features": {
+    "enable_live_monitoring": true,
+    "enable_analytics": true,
+    "enable_satellite_comparison": true,
+    "enable_configuration_panel": true,
+    "enable_alerts": false,
+    "enable_export": false
+  },
+  "defaults": {
+    "default_satellite": "s2",
+    "default_region": "T30UUE",
+    "default_days_history": 7,
+    "default_zoom_level": 1.0
+  }
+}
